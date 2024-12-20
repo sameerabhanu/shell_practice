@@ -2,7 +2,7 @@ let currentDirectory = '~';
 const files = [];
 
 const promptText = function (currentDirectory) {
-  return ('My shell ' + currentDirectory + ' %');
+  return ('sameerabhanu@Sameeras-MacBook-Pro ' + currentDirectory + ' %');
 };
 
 const runEcho = function (args) {
@@ -10,7 +10,7 @@ const runEcho = function (args) {
 };
 
 const runCd = function (args) {
-  currentDirectory = args.join('');
+  currentDirectory = args.join('').split('/').at(-1);
 };
 
 const runTouch = function (args) {
@@ -25,6 +25,10 @@ const runPwd = function () {
   return currentDirectory;
 }
 
+const runMkdir = function () {
+  return;
+}
+
 const runCommand = function (inputCommand) {
   const [command, ...args] = inputCommand.split(' ');
 
@@ -34,6 +38,7 @@ const runCommand = function (inputCommand) {
     case 'touch': return runTouch(args);
     case 'ls': return runLs();
     case 'pwd': return runPwd();
+    case 'mkdir': return runMkdir();
     default: return ' No such command';
   }
 
